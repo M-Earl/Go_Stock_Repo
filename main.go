@@ -14,8 +14,9 @@ func main() {
 		bodyBytes, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
 			fmt.Println(err)
-		} 
-		bodyString := string(bodyBytes)
-		fmt.Println(bodyString)
+		} else{
+			bodyString := string(bodyBytes)
+			fmt.Println(bodyString)
+		}
 	}
 }
