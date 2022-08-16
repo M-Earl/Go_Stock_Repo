@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
+	"time"
 )
 
 const aapl_open_close = "https://api.polygon.io/v1/open-close/AAPL/2020-10-14?adjusted=true&apiKey=3WhkjwKYZY4V6wK0su0xzcPFSN0FlzvU"
@@ -12,6 +13,12 @@ const msft_open_close = "https://api.polygon.io/v1/open-close/MSFT/2020-10-14?ad
 
 
 func main() {
+	get_voo()
+	time.Sleep(5 * time.Second)
+	get_voo()
+}
+
+func get_voo() {
 	resp, err := http.Get(voo_open_close)
 	if err != nil {
 		fmt.Println(err)
