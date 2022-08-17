@@ -20,22 +20,22 @@ const voo_open_close = open_close_endpoint + voo + date + extra + api_key
 const msft_open_close = open_close_endpoint + msft + date + extra + api_key
 
 func main() {
-	get_voo()
+	fmt.Println(get_voo())
 	time.Sleep(5 * time.Second)
-	get_voo()
+	fmt.Println(get_voo())
 }
 
-func get_voo() {
+func get_voo() string {
 	resp, err := http.Get(voo_open_close)
 	if err != nil {
-		fmt.Println(err)
+		return err.Error()
 	} else {
 		bodyBytes, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
-			fmt.Println(err)
+			return err.Error()
 		} else{
 			bodyString := string(bodyBytes)
-			fmt.Println(bodyString)
+			return bodyString
 		}
 	}
 }
