@@ -8,13 +8,13 @@ import (
 )
 
 func main() {
-	fmt.Println(get_voo())
+	fmt.Println(get_stock_value(voo_open_close))
 	time.Sleep(5 * time.Second)
-	fmt.Println(get_voo())
+	fmt.Println(get_stock_value(voo_open_close))
 }
 
-func get_voo() string {
-	resp, err := http.Get(voo_open_close)
+func get_stock_value(endpoint string) string {
+	resp, err := http.Get(endpoint)
 	if err != nil {
 		return err.Error()
 	} else {

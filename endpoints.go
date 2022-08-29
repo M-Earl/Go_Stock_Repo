@@ -1,4 +1,4 @@
-package main  
+package main
 
 const open_close_endpoint = "https://api.polygon.io/v1/open-close/"
 const api_key = "3WhkjwKYZY4V6wK0su0xzcPFSN0FlzvU"
