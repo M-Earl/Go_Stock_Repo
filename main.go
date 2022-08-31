@@ -1,6 +1,7 @@
 package main  
 
-import ( 
+import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"io/ioutil"
@@ -10,7 +11,7 @@ import (
 func main() {
 	fmt.Println(get_stock_value(voo_open_close))
 	time.Sleep(5 * time.Second)
-	fmt.Println(get_stock_value(voo_open_close))
+	//fmt.Println(get_stock_value(voo_open_close))
 }
 
 func get_stock_value(endpoint string) string {
@@ -23,6 +24,8 @@ func get_stock_value(endpoint string) string {
 			return err.Error()
 		} else{
 			bodyString := string(bodyBytes)
+			//var response Response
+			//json.Unmarshal(bodyString, &response)
 			return bodyString
 		}
 	}
