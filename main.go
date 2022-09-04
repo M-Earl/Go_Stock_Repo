@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-type Response struct {
+type Stock struct {
 	status 		string 
 	from 		string
 	symbol 		string
@@ -36,8 +36,7 @@ func get_stock_value(endpoint string) string {
 		if err != nil {
 			return err.Error()
 		} else{
-			//bodyString := string(bodyBytes)
-			var response Response
+			var response Stock
 			json.Unmarshal(bodyBytes, &response)
 			return response.close
 		}
