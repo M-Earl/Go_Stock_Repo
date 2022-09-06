@@ -6,19 +6,20 @@ import (
 	"net/http"
 	"io/ioutil"
 	"time"
+	"strconv"
 )
 
 type Stock struct {
-	status 		string 
-	from 		string
-	symbol 		string
-	open 		string
-	high 		string
-	low 		string
-	close 		string
-	volume 		string
-	afterHours 	string
-	preMarket 	string
+	Status 		string 
+	From 		string
+	Symbol 		string
+	Open 		float64
+	High 		float64
+	Low 		float64
+	Close 		float64
+	Volume 		int
+	AfterHours 	int
+	PreMarket 	float64
 }
 
 func main() {
@@ -38,7 +39,7 @@ func get_stock_value(endpoint string) string {
 		} else{
 			var response Stock
 			json.Unmarshal(bodyBytes, &response)
-			return response.close
+			return strconv.FormatFloat(response.Close, 'E', -1, 64)
 		}
 	}
 }
