@@ -39,7 +39,7 @@ func get_stock_value(endpoint string) string {
 		} else{
 			var response Stock
 			json.Unmarshal(bodyBytes, &response)
-			return strconv.FormatFloat(response.Close, 'E', -1, 64)
+			return strconv.FormatFloat(response.Close, 'f', 2, 64)
 		}
 	}
 }
