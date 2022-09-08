@@ -23,8 +23,8 @@ type Stock struct {
 }
 
 func main() {
-	fmt.Println(get_stock_value(voo_open_close))
-	time.Sleep(5 * time.Second)
+	fmt.Println("Value of VOO at close: " + get_stock_value(voo_open_close))
+	//time.Sleep(5 * time.Second)
 	//fmt.Println(get_stock_value(voo_open_close))
 }
 
