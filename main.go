@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
-	"time"
+	//"time"
+	"log"
 	"strconv"
 )
 
@@ -22,8 +23,19 @@ type Stock struct {
 	PreMarket 	float64
 }
 
+func server(w http.ResponseWriter, r *http.Request){
+    fmt.Fprintf(w, "Here is the data")
+    fmt.Println("Data accessed")
+}
+
+func handleRequests() {
+    http.HandleFunc("/", server)
+    log.Fatal(http.ListenAndServe(":3000", nil))
+}
+
 func main() {
 	fmt.Println("Value of VOO at close: " + get_stock_value(voo_open_close))
+	handleRequests()
 	//time.Sleep(5 * time.Second)
 	//fmt.Println(get_stock_value(voo_open_close))
 }
