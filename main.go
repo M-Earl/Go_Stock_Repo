@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 	"io/ioutil"
-	//"time"
 	"log"
 	"strconv"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type Stock struct {
