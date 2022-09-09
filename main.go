@@ -23,8 +23,10 @@ type Stock struct {
 	PreMarket 	float64
 }
 
+var data string
+
 func server(w http.ResponseWriter, r *http.Request){
-    fmt.Fprintf(w, "Here is the data")
+    fmt.Fprintf(w, "VOO at close: " + data)
     fmt.Println("Data accessed")
 }
 
@@ -34,7 +36,8 @@ func handleRequests() {
 }
 
 func main() {
-	fmt.Println("Value of VOO at close: " + get_stock_value(voo_open_close))
+	data = get_stock_value(voo_open_close)
+	fmt.Println("Value of VOO at close: " + data)
 	handleRequests()
 	//time.Sleep(5 * time.Second)
 	//fmt.Println(get_stock_value(voo_open_close))
