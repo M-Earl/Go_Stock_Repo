@@ -8,6 +8,7 @@ import (
 	"log"
 	"strconv"
 	_ "github.com/go-sql-driver/mysql"
+	"database/sql"
 )
 
 type Stock struct {
@@ -25,6 +26,13 @@ type Stock struct {
 
 var voo_value string
 
+const mysql_username = "root"
+const mysql_password = "Spartan117!"
+const mysql_net = "tcp"
+const mysql_address = "127.0.0.1:3306"
+const mysql_db_name = "example"
+const mysql_conn = mysql_username + ":" + mysql_password + "@" + mysql_net + "(" + mysql_net + ")/" + mysql_db_name
+
 func server(w http.ResponseWriter, r *http.Request){
     fmt.Fprintf(w, "VOO at close: " + voo_value)
     fmt.Println("Data accessed")
@@ -39,6 +47,22 @@ func main() {
 	voo_value = get_stock_value(voo_open_close)
 	fmt.Println("Value of VOO at close: " + voo_value)
 	handleRequests()
+
+	db, err := sql.Open("mysql", "root:Spartan117!@tcp(127.0.0.1:3306)/example")
+
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    var version string
+
+    err2 := db.QueryRow("SELECT VERSION()").Scan(&version)
+
+    if err2 != nil {
+        log.Fatal(err2)
+    }
+
+    fmt.Println(version)
 }
 
 func get_stock_value(endpoint string) string {
