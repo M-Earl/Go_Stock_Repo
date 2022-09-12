@@ -46,7 +46,6 @@ func handleRequests() {
 func main() {
 	voo_value = get_stock_value(voo_open_close)
 	fmt.Println("Value of VOO at close: " + voo_value)
-	handleRequests()
 
 	db, err := sql.Open("mysql", "root:Spartan117!@tcp(127.0.0.1:3306)/example")
 
@@ -63,6 +62,8 @@ func main() {
     }
 
     fmt.Println(version)
+
+	handleRequests()
 }
 
 func get_stock_value(endpoint string) string {
