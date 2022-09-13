@@ -26,13 +26,6 @@ type Stock struct {
 
 var voo_value string
 
-const mysql_username = "root"
-const mysql_password = "Spartan117!"
-const mysql_net = "tcp"
-const mysql_address = "127.0.0.1:3306"
-const mysql_db_name = "example"
-const mysql_conn = mysql_username + ":" + mysql_password + "@" + mysql_net + "(" + mysql_net + ")/" + mysql_db_name
-
 func server(w http.ResponseWriter, r *http.Request){
     fmt.Fprintf(w, "VOO at close: " + voo_value)
     fmt.Println("Data accessed")
