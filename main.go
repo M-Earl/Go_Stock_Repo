@@ -40,7 +40,7 @@ func main() {
 	voo_value = get_stock_value(voo_open_close)
 	fmt.Println("Value of VOO at close: " + voo_value)
 
-	db, err := sql.Open("mysql", "root:Spartan117!@tcp(127.0.0.1:3306)/example")
+	db, err := sql.Open("mysql", mysql_conn)
 
     if err != nil {
         log.Fatal(err)
