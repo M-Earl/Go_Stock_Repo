@@ -27,7 +27,7 @@ type Stock struct {
 var voo_value string
 
 func server(w http.ResponseWriter, r *http.Request){
-    fmt.Fprintf(w, "VOO at close: " + voo_value)
+    fmt.Fprintf(w, voo_value)
     fmt.Println("Data accessed")
 }
 
