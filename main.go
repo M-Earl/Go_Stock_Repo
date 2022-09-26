@@ -42,6 +42,9 @@ func main() {
 
 	db, err := sql.Open("mysql", mysql_conn)
 
+	// insertStockValue := "INSERT INTO stock_value(stock, date, value) VALUES ("VOO", 2022-09-25, 300)"
+	// db, err := db.Exec(insertStockValue, mysql_conn)
+
     if err != nil {
         log.Fatal(err)
     }
